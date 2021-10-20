@@ -1,0 +1,8 @@
+reconhecimento facial (inspirações):
+https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/
+
+ideias para o passo a passo do código:
+https://medium.com/@saurabh.shaligram/face-mask-detection-simple-opencv-based-program-417bbcf0abd8
+
+Detecção facial com haarcascade
+http://opencv-tutorials-hub.blogspot.com/2016/03/how-to-do-face-detection-opencv-haar-cascade.html
