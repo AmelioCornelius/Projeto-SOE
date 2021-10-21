@@ -25,10 +25,10 @@ int main()
     Mat frame, image, img;
     CascadeClassifier cascadeFace, cascadeEye, cascadeMouth, cascadeUpperBody;
     // carregando os arquivos cascade
-    cascadeFace.load("//home//pi//Desktop//t8//haarcascades//haarcascade_frontalface_default.xml");
-    cascadeEye.load("//home//pi//Desktop//t8//haarcascades//haarcascade_eye.xml");
-    cascadeMouth.load("//home//pi//Desktop//t8//haarcascades//haarcascade_mcs_mouth.xml");
-    cascadeUpperBody.load("//home//pi//Desktop//t8//haarcascades//haarcascade_upperbody.xml");
+    cascadeFace.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_frontalface_default.xml");
+    cascadeEye.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_eye.xml");
+    cascadeMouth.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_mcs_mouth.xml");
+    cascadeUpperBody.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_upperbody.xml");
     capture.open(0); // caminho do vídeo
     Mat gray, blackWhite;
     Scalar color = Scalar(255, 255, 255);
