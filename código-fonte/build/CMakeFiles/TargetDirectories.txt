@@ -1,0 +1,3 @@
+/home/pi/Projeto-SOE/código-fonte/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Projeto-SOE/código-fonte/build/CMakeFiles/detecmasc.dir
+/home/pi/Projeto-SOE/código-fonte/build/CMakeFiles/edit_cache.dir
