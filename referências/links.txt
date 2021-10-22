@@ -1,3 +1,15 @@
+instalação da bcm2835
+https://www.techworked.com/install-bcm2835-library-in-raspberry-pi/
+
+instalação do cmake:
+https://lindevs.com/install-cmake-on-raspberry-pi/
+
+instalação do opencv:
+https://solarianprogrammer.com/2019/09/17/install-opencv-raspberry-pi-raspbian-cpp-python-development/
+
+instalação da raspicam:
+https://acslaboratory.github.io/pheeno_ros/raspicam_on_pheeno/
+
 reconhecimento facial (inspirações):
 https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/
 

@@ -1,4 +1,4 @@
-//gcc mlx90614.c -o mlx90614 -l bcm2835
+//sudo gcc mlx90614.c -o mlx90614 -l bcm2835
 #include <stdio.h>
 #include <bcm2835.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <time.h>
-#define AVG 1   //média das amostras
+#define AVG 1   // quantidade de medições
  
  
 int main(int argc, char **argv)
@@ -34,11 +34,11 @@ int main(int argc, char **argv)
         bcm2835_i2c_read_register_rs(&reg,&buf[0],3);
         temp = (double) (((buf[1]) << 8) + buf[0]);
         temp = (temp * 0.02)-0.01;
-        temp = temp - 273.15;
+        temp = temp - 273.15; // conversão para celsius
         calc+=temp;
         sleep(1);
     }
- 
+    //Temperatura média
     skytemp = calc/AVG;
     calc = 0;
     reg = 6;
@@ -49,16 +49,17 @@ int main(int argc, char **argv)
         bcm2835_i2c_read_register_rs(&reg,&buf[0],3);
         temp = (double) (((buf[1]) << 8) + buf[0]);
         temp = (temp * 0.02)-0.01;
-        temp = temp - 273.15;
+        temp = temp - 273.15; // conversão para celsius
         calc += temp;
         sleep(1);
     }
- 
+    //Temperatura média
     atemp = calc/AVG;
  
     printf("Temperatura Ambiente = %04.2f\n", atemp);
     printf("Temperatura Corporal = %04.2f\n", skytemp);
- 
+    
+    //Diagnóstico de acordo com a temperatura
     if(35.0 <skytemp< 37.7)
         printf("Temperatura normal\n");
     else if (skytemp <35.0)
