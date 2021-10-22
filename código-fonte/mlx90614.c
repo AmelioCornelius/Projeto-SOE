@@ -34,7 +34,7 @@ int main(int argc, char **argv)
         bcm2835_i2c_read_register_rs(&reg,&buf[0],3);
         temp = (double) (((buf[1]) << 8) + buf[0]);
         temp = (temp * 0.02)-0.01;
-        temp = temp - 273.15;
+        temp = temp - 268.1;
         calc+=temp;
         sleep(1);
     }
