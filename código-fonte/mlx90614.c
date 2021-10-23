@@ -1,5 +1,5 @@
 //gcc mlx90614.c -o temp -l bcm2835
-//sudo -o temp
+//sudo ./temp
 #include <stdio.h>
 #include <bcm2835.h> // biblioteca necessária para o sensor
 #include <stdlib.h>
