@@ -22,13 +22,11 @@ int main()
     double scale = 1;
     int bwThreshold = 6; // limiar
     VideoCapture capture; // capturar vídeo
-    Mat frame, image, img;
-    CascadeClassifier cascadeFace, cascadeEye, cascadeMouth, cascadeUpperBody;
+    Mat image, img; 
+    CascadeClassifier cascadeFace, cascadeMouth;
     // carregando os arquivos cascade
     cascadeFace.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_frontalface_default.xml");
-    cascadeEye.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_eye.xml");
     cascadeMouth.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_mcs_mouth.xml");
-    cascadeUpperBody.load("//home//pi//Projeto-SOE//código-fonte//haarcascades//haarcascade_upperbody.xml");
     capture.open(0); // caminho do vídeo
     Mat gray, blackWhite;
     Scalar color = Scalar(255, 255, 255);
@@ -38,8 +36,7 @@ int main()
         std::cout << "Detecção de rosto começando\nPressione q ou Q para sair" << std::endl;
         while (1)
         {
-            capture.read(frame);  // ler a imagem
-            capture.read(image);
+            capture.read(image); // ler a imagem
             flip(image, image, 1); // virar a imagem 1
             cvtColor(image, gray, COLOR_BGR2GRAY); // escala de cinza
             threshold(gray, blackWhite, bwThreshold, 255, THRESH_BINARY); // preto e branco
