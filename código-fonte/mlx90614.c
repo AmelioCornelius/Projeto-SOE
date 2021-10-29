@@ -15,10 +15,29 @@
 
 void arqcsv_temp(float ctemp)
 {
+    //dados=strcat(dados,".csv");
+
     FILE *fp;
 
-    //dados=strcat(dados,".csv");
     fp=fopen("dados.csv","a");
+    fseek(fp, 0, SEEK_END);
+    int size = ftell(fp);
+    if(size == 0)
+    {
+        fprintf(fp,"Data,Temperatura\n");
+    }
+    
+    //data
+    int diaatual, mesatual, anoatual, horaatual, minutoatual;
+    time_t agora_segundos = time(NULL);
+    struct tm *agora = localtime(&agora_segundos);
+    diaatual = agora->tm_mday;
+    mesatual = agora->tm_mon + 1;
+    anoatual = agora->tm_year + 1900;
+    horaatual = agora->tm_hour;
+    minutoatual = agora->tm_min;
+    fprintf(fp,"%i/%i/%i %i:%i,", diaatual, mesatual, anoatual, horaatual, minutoatual);
+
     fprintf(fp,"%.2f\n", ctemp);
     fclose(fp);
 }
