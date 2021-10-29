@@ -57,7 +57,6 @@ int main(void) {
 
   curl = curl_easy_init();
 
-
   if(curl) {
     curl_mime *mime;
     curl_mimepart *part;
@@ -84,9 +83,9 @@ int main(void) {
     // anexar arquivo
     mime = curl_mime_init(curl);
     part = curl_mime_addpart(mime);
-    curl_mime_filedata(part, "temperatura.txt");
+    curl_mime_filedata(part, "dados.csv");
     curl_easy_setopt(curl, CURLOPT_MIMEPOST, mime);
-    //curl_mime_encoder(part, "base64");
+    curl_mime_encoder(part, "base64");
 
     /* Enviar a mensagem */
     res = curl_easy_perform(curl);
@@ -104,3 +103,26 @@ int main(void) {
 
   return (int)res;
 }
+
+/*void parseRecipients(char* emailAddrFileName, 
+  struct curl_slist **recipientsPtr) {
+    FILE *f = fopen(emailAddrFileName, "r");
+    char emailAddress[65];
+
+    if (f == NULL) {
+        fprintf(stderr, "Erro abrindo o arquivo!\n");
+        exit(1);
+    }
+
+    //carregando os endereços de e-mail
+    for (int i = 0; ; i++) {
+        if (fgets(emailAddress, 65, f) == NULL)
+            break;
+        emailAddress[strlen(emailAddress) - 1] = 0; //null
+        if (strlen(emailAddress) == 0)
+            break;
+        *recipientsPtr = curl_slist_append(*recipientsPtr, emailAddress);
+    }
+
+    fclose(f);
+}*/
