@@ -5,6 +5,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/core.hpp>
+#include <unistd.h>
 
 #define COMMASCARA "Usando máscara"
 #define SEMMASCARA "Sem máscara!"
@@ -44,7 +45,7 @@ void arqcsv_masc(int flag)
 
     if(flag == 1)
     {
-        fprint("Usando máscara,");
+        fprintf("Usando máscara,");
     }
     if(flag == 0)
     {
