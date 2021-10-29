@@ -1,6 +1,7 @@
 //gcc mlx90614.c -o temp -l bcm2835
 //sudo ./temp
 #include <stdio.h>
+#include <time.h>
 #include <bcm2835.h> // biblioteca necessária para o sensor
 #include <stdlib.h>
 #include <fcntl.h>
@@ -10,6 +11,17 @@
 #include <unistd.h>
 #include <time.h>
 #define AVG 1   //média das amostras
+ 
+
+void arqcsv_temp(float ctemp)
+{
+    FILE *fp;
+
+    //dados=strcat(dados,".csv");
+    fp=fopen("dados.csv","a");
+    fprintf(fp,"%.2f\n", ctemp);
+    fclose(fp);
+}
  
  
 int main(int argc, char **argv)
@@ -41,6 +53,7 @@ int main(int argc, char **argv)
     }
  
     ctemp = calc/AVG; // temperatura corporal média
+    arqcsv_temp(ctemp);
     calc = 0;
     reg = 6;
  
@@ -67,5 +80,7 @@ int main(int argc, char **argv)
         printf("Hipotermia\n");
     else if (ctemp > 37.7)
         printf("Febre\n");
+
+
     return 0;
 }
